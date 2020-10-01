@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="VishaldbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbladmin">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="admin_name" Type="varchar" MaxLength="50" />
+          <Property Name="admin_email_id" Type="varchar" MaxLength="50" />
+          <Property Name="admin_password" Type="varchar" MaxLength="50" />
+          <Property Name="admin_status" Type="varchar" MaxLength="50" />
+          <Property Name="admin_mob_number" Type="varchar" MaxLength="50" />
+          <Property Name="user_type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblcompany">
+          <Key>
+            <PropertyRef Name="comp_id" />
+          </Key>
+          <Property Name="comp_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="comp_name" Type="varchar" MaxLength="50" />
+          <Property Name="comp_email" Type="varchar" MaxLength="50" />
+          <Property Name="comp_contact" Type="varchar" MaxLength="50" />
+          <Property Name="comp_add" Type="varchar(max)" />
+          <Property Name="comp_about" Type="varchar(max)" />
+          <Property Name="comp_password" Type="varchar" MaxLength="50" />
+          <Property Name="comp_status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="VishaldbModelStoreContainer">
+          <EntitySet Name="tbladmin" EntityType="Self.tbladmin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblcompany" EntityType="Self.tblcompany" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VishaldbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbladmin">
+          <Key>
+            <PropertyRef Name="admin_id" />
+          </Key>
+          <Property Name="admin_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="admin_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="admin_email_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="admin_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="admin_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="admin_mob_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblcompany">
+          <Key>
+            <PropertyRef Name="comp_id" />
+          </Key>
+          <Property Name="comp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="comp_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="comp_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="comp_contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="comp_add" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="comp_about" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="comp_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="comp_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="VishaldbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbladmins" EntityType="Self.tbladmin" />
+          <EntitySet Name="tblcompanies" EntityType="Self.tblcompany" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VishaldbModelStoreContainer" CdmEntityContainer="VishaldbEntities">
+          <EntitySetMapping Name="tbladmins">
+            <EntityTypeMapping TypeName="VishaldbModel.tbladmin">
+              <MappingFragment StoreEntitySet="tbladmin">
+                <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+                <ScalarProperty Name="admin_name" ColumnName="admin_name" />
+                <ScalarProperty Name="admin_email_id" ColumnName="admin_email_id" />
+                <ScalarProperty Name="admin_password" ColumnName="admin_password" />
+                <ScalarProperty Name="admin_status" ColumnName="admin_status" />
+                <ScalarProperty Name="admin_mob_number" ColumnName="admin_mob_number" />
+                <ScalarProperty Name="user_type" ColumnName="user_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblcompanies">
+            <EntityTypeMapping TypeName="VishaldbModel.tblcompany">
+              <MappingFragment StoreEntitySet="tblcompany">
+                <ScalarProperty Name="comp_id" ColumnName="comp_id" />
+                <ScalarProperty Name="comp_name" ColumnName="comp_name" />
+                <ScalarProperty Name="comp_email" ColumnName="comp_email" />
+                <ScalarProperty Name="comp_contact" ColumnName="comp_contact" />
+                <ScalarProperty Name="comp_add" ColumnName="comp_add" />
+                <ScalarProperty Name="comp_about" ColumnName="comp_about" />
+                <ScalarProperty Name="comp_password" ColumnName="comp_password" />
+                <ScalarProperty Name="comp_status" ColumnName="comp_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
